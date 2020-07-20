@@ -1,6 +1,8 @@
 import pygame
 import math
 
+pygame.init()
+
 WIDTH = 600
 RECT_WIDTH = 200
 WIN = pygame.display.set_mode((WIDTH,WIDTH))
@@ -22,6 +24,10 @@ def check_win(val):
 			else: 
 				break
 		else:
+			if val == 1:
+				message_display("Crosses wins!")
+			else:
+				message_display("Noughts wins!")
 			return True
 	
 	for col in range(3):
@@ -31,6 +37,10 @@ def check_win(val):
 			else:
 				break
 		else:
+			if val == 1:
+				message_display("Crosses wins!")
+			else:
+				message_display("Noughts wins!")
 			return True
 
 	for tile in range(3):
@@ -39,7 +49,17 @@ def check_win(val):
 		else:
 			break
 	else:
+		if val == 1:
+				message_display("Crosses wins!")
+		else:
+				message_display("Noughts wins!")
 		return True
+
+def message_display(text):
+	font = pygame.font.SysFont(None, 50)
+	img = font.render(text, True, GREEN)
+	WIN.blit(img, (180, 200))
+    
 
 def main():
 	
